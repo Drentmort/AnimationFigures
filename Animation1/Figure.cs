@@ -85,18 +85,27 @@ namespace Animation1
                 SetBounds(point.X, point.Y, 2, 2);
             else
             {
-                if (point.X < boundingBox.X || point.Y < boundingBox.Y)
+                if (point.X < boundingBox.X && point.Y < boundingBox.Y)
                     SetBounds(point.X, point.Y, 
                         boundingBox.Width + boundingBox.X - point.X, 
                         boundingBox.Height + boundingBox.Y - point.Y);
-                if (point.X > boundingBox.X || point.Y > boundingBox.Y)
+                if (point.X >= boundingBox.X && point.Y >= boundingBox.Y)
                     SetBounds(boundingBox.X, boundingBox.Y,
                         point.X - boundingBox.X,
                         point.Y - boundingBox.Y);
+                if(point.X < boundingBox.X && point.Y>= boundingBox.Y)
+                    SetBounds(point.X, boundingBox.Y,
+                        boundingBox.Width + boundingBox.X - point.X,
+                        point.Y - boundingBox.Y);
+                if (point.X >= boundingBox.X && point.Y < boundingBox.Y)
+                    SetBounds(boundingBox.X, point.Y,
+                       point.X - boundingBox.X,
+                       boundingBox.Height + boundingBox.Y - point.Y);
             }
             Points.Add(point);
             CenterMass();
         }
+
         public byte[] GetPathPointsTypes()
         {
             byte[] pathTypePoints = new byte[Points.Count];
@@ -111,6 +120,7 @@ namespace Animation1
             return pathTypePoints;
         
         }
+
         public Bitmap GetPointImage()
         {
             Bitmap image = new Bitmap(6,6);
@@ -119,7 +129,7 @@ namespace Animation1
             {
                 case DotPaintType.FILLED_CIRCLE:
                     {
-                        graphTemp.DrawEllipse(Pens.Black, 1, 1, 5, 5);
+                        //graphTemp.DrawEllipse(Pens.Black, 1, 1, 5, 5);
                         graphTemp.FillEllipse(Brushes.Red, 1, 1, 5, 5);
                     }
                     break;
@@ -134,11 +144,11 @@ namespace Animation1
             if (boundingBox.Width == 0 || boundingBox.Height == 0)
                 return null;
 
-            Bitmap image = new Bitmap(boundingBox.Width+1, boundingBox.Width+1);
+            Bitmap image = new Bitmap(boundingBox.Width+1, boundingBox.Height+1);
             Graphics graphTemp = Graphics.FromImage(image);
             foreach(var node in Points)
             {
-                graphTemp.DrawRectangle(Pens.Black, node.X- boundingBox.Width, node.Y- boundingBox.Height, 2, 2);
+                graphTemp.DrawRectangle(Pens.Black, node.X - boundingBox.Width + 1, node.Y - boundingBox.Height + 1, 2, 2);
             }
             graphTemp.Dispose();
 
