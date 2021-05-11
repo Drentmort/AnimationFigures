@@ -40,26 +40,26 @@ namespace Animation1
       
             tools.graphics.Transform = figure.basisMatrix;
 
-            //foreach (var point in figure.Points)
-            //{
-            //    tools.graphics.DrawRectangle(tools.pen, point.X, point.Y, 2, 2);
-            //}
+            foreach (var point in figure.Points)
+            {
+                tools.graphics.DrawRectangle(tools.pen, point.X, point.Y, 2, 2);
+            }
 
-            Image nodesImage = figure.GetNodesImage();
-            if (nodesImage != null)
-                tools.graphics.DrawImage(nodesImage, figure.boundingBox.Location);
+            //Image nodesImage = figure.GetNodesImage();
+            //if (nodesImage != null)
+            //    tools.graphics.DrawImage(nodesImage, figure.boundingBox.Location);
 
             Image centerImage = figure.GetPointImage();
             tools.graphics.DrawImage(centerImage, figure.center.X - centerImage.Width / 2, figure.center.Y - centerImage.Height / 2);
 
-            //if (figure.Points.Count > 1) 
-            //{
-            //    Point[] pathPoints = new Point[figure.Points.Count];
-            //    figure.Points.CopyTo(pathPoints);
-            //    GraphicsPath path = new GraphicsPath(pathPoints, figure.GetPathPointsTypes());
+            if (figure.Points.Count > 1) 
+            {
+                Point[] pathPoints = new Point[figure.Points.Count];
+                figure.Points.CopyTo(pathPoints);
+                GraphicsPath path = new GraphicsPath(pathPoints, figure.GetPathPointsTypes());
 
-            //    tools.graphics.DrawPath(Pens.Black, path); 
-            //}
+                tools.graphics.DrawPath(Pens.Black, path); 
+            }
            
 
             tools.Dispose();
