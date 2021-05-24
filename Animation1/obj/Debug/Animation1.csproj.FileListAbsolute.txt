@@ -1,7 +1,6 @@
 C:\Users\Anton\source\repos\Animation1\Animation1\bin\Debug\Animation1.exe.config
 C:\Users\Anton\source\repos\Animation1\Animation1\bin\Debug\Animation1.exe
 C:\Users\Anton\source\repos\Animation1\Animation1\bin\Debug\Animation1.pdb
-C:\Users\Anton\source\repos\Animation1\Animation1\obj\Debug\Animation1.csprojAssemblyReference.cache
 C:\Users\Anton\source\repos\Animation1\Animation1\obj\Debug\Animation1.Form1.resources
 C:\Users\Anton\source\repos\Animation1\Animation1\obj\Debug\Animation1.Properties.Resources.resources
 C:\Users\Anton\source\repos\Animation1\Animation1\obj\Debug\Animation1.csproj.GenerateResource.cache

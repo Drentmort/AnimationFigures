@@ -21,12 +21,13 @@ namespace Animation1
         {
             this.components = new System.ComponentModel.Container();
             this.Start = new System.Windows.Forms.Button();
-            this.PaintArea = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Stop = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.BufferTimer = new System.Windows.Forms.Timer(this.components);
+            this.PaintArea = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PaintArea)).BeginInit();
             this.SuspendLayout();
             // 
             // Start
@@ -40,22 +41,9 @@ namespace Animation1
             this.Start.UseVisualStyleBackColor = true;
             this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
-            // PaintArea
-            // 
-            this.PaintArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PaintArea.AutoSize = true;
-            this.PaintArea.Location = new System.Drawing.Point(30, 35);
-            this.PaintArea.Name = "PaintArea";
-            this.PaintArea.Size = new System.Drawing.Size(484, 442);
-            this.PaintArea.TabIndex = 2;
-            this.PaintArea.Click += new System.EventHandler(this.PaintArea_Click);
-            this.PaintArea.Paint += new System.Windows.Forms.PaintEventHandler(this.PaintArea_Paint);
-            // 
             // timer1
             // 
-            this.timer1.Interval = 40;
+            this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Stop
@@ -92,6 +80,19 @@ namespace Animation1
             // 
             this.BufferTimer.Interval = 200;
             // 
+            // PaintArea
+            // 
+            this.PaintArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PaintArea.Location = new System.Drawing.Point(12, 12);
+            this.PaintArea.Name = "PaintArea";
+            this.PaintArea.Size = new System.Drawing.Size(513, 454);
+            this.PaintArea.TabIndex = 6;
+            this.PaintArea.TabStop = false;
+            this.PaintArea.Click += new System.EventHandler(this.PaintArea_Click);
+            this.PaintArea.Paint += new System.Windows.Forms.PaintEventHandler(this.PaintArea_Paint);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,27 +101,30 @@ namespace Animation1
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(537, 597);
+            this.Controls.Add(this.PaintArea);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Stop);
-            this.Controls.Add(this.PaintArea);
             this.Controls.Add(this.Start);
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.PaintArea)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         private System.Windows.Forms.Button Start;
-        private System.Windows.Forms.Panel PaintArea;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button Stop;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer BufferTimer;
+        private PictureBox PaintArea;
     }
+
+  
 }
 

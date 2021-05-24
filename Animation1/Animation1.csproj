@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBPicBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Drawer.cs" />
     <Compile Include="DisposbleHolder.cs" />
     <Compile Include="Figure.cs" />
