@@ -1,9 +1,6 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Collections.Generic;
-using System.Linq;
-using System.Collections;
-using System.IO;
 using System;
 
 namespace Animation1
@@ -23,24 +20,8 @@ namespace Animation1
         EMPTY_RECTANGLE,
     }
 
-    interface IFigure
-    {
-        List<Point> Points { get; }
-        Matrix basisMatrix { get; set; }
-        Rectangle boundingBox { get; set; }
-        PointF center { get; set; }
-        CurveType curveType { get; set; }
-        DotPaintType dotPaintType { get; set; }
-        float angularSpeed { get; set; }
-        bool isPointsShown { get; set; }
-        bool isLinessShown { get; set; }
-        bool isAxisShown { get; set; }
-        void SetBounds(int x, int y, int weight, int height);
-        void SetAngleAndRotate(float angle);
-
-    }
-
-    class Figure : IFigure, IDisposable
+   
+    class Figure : IDisposable
     {
         public List<Point> Points { get; } = new List<Point>();
         public Matrix basisMatrix { get; set; }
@@ -139,6 +120,7 @@ namespace Animation1
             return image;
 
         }
+        
         public Bitmap GetNodesImage()
         {
             if (boundingBox.Width == 0 || boundingBox.Height == 0)
@@ -154,6 +136,7 @@ namespace Animation1
 
             return image;
         }
+       
         private void CenterMass()
         {
             double X = 0.0;
@@ -168,6 +151,7 @@ namespace Animation1
             Y /= Points.Count;
             center = new PointF((float)X, (float)Y);
         }
+       
         public void Dispose()
         {
             if (basisMatrix != null)
